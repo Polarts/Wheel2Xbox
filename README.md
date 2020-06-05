@@ -1,5 +1,5 @@
 # Wheel2Xbox
-A project that converts signals from Logitech Formula Vibration Feedback Wheel (2004 model) into virtual Xbox 360 controller signals to make it usable with modern games.
+A project that converts signals from [Logitech Formula Vibration Feedback Wheel (E-UK12, 2004 model)](https://www.amazon.co.uk/Formula-Vibration-Feedback-Wheel-PC/dp/B0006J243Q) into virtual Xbox 360 controller signals to make it usable with modern games.
 This project utilizes [HidLibrary](https://github.com/mikeobrien/HidLibrary) and [ScpDriverInterface](https://github.com/mogzol/ScpDriverInterface) to achieve its goal.
 
 At this point, this project is a POC to see how far I can go with this technology.
@@ -9,7 +9,7 @@ If it proves successful, I'll consider making a generic program that allows mapp
 The program is divided into 3 services. Their flow and interaction are described as a flowchart in Fig. 1.
 ### 1. Hid Service
 Responsible for communicating with HidLibrary, through which it receives report signals from the USB HID interface, zips them and forwards them into processing.
-### 2. X360 Controller Service
+### 2. Scp X360 Controller Service
 Responsible for communicating with ScpDriverInterface, through which it reports signals to the virtual X360Controller device. The signal is built from a collection of button/axis actions it receives from Wheel Input Handler.
 ### 3. Wheel Input Handler
 Responsible for listening to change events from Hid Service, processing them into button mappings, and forwarding them to X360 Controller Service.
