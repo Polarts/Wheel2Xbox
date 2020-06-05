@@ -127,6 +127,34 @@ namespace Wheel2Xbox
                     Index = 3,
                     Value = 32,
                     OutputButton = X360Buttons.Start
+                },
+                new ButtonIdentity
+                {
+                    Name = "Left",
+                    Index = 5,
+                    Value = -2,
+                    OutputButton = X360Buttons.Left
+                },
+                new ButtonIdentity
+                {
+                    Name = "Up",
+                    Index = 5,
+                    Value = -8,
+                    OutputButton = X360Buttons.Up
+                },
+                new ButtonIdentity
+                {
+                    Name = "Right",
+                    Index = 5,
+                    Value = -6,
+                    OutputButton = X360Buttons.Right
+                },
+                new ButtonIdentity
+                {
+                    Name = "Down",
+                    Index = 5,
+                    Value = -4,
+                    OutputButton = X360Buttons.Down
                 }
             };
 
