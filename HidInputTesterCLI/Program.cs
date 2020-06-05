@@ -23,10 +23,13 @@ namespace HidInputTesterCLI
             if (input.Status == HidDeviceData.ReadStatus.Success
                 && input.Data.Length > 0)
             {
-                Console.WriteLine("Report: "+string.Join(' ', input.Data));
+                Console.Write("Report: "+string.Join(' ', input.Data)+" | ");
 
                 if (lastReport is null)
+                {
                     lastReport = input.Data;
+                    Console.WriteLine();
+                }
                 else
                 {
                     Console.WriteLine("Changes: " + string.Join(' ', input.Data.Zip(lastReport, (current, last) => current - last)));
