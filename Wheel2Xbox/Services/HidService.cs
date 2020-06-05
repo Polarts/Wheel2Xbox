@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using HidLibrary;
+using Wheel2Xbox.Types;
 
 namespace Wheel2Xbox.Services
 {
-    public delegate void InputReportChangeEventHandler(IEnumerable<int> changes);
+    public delegate void InputReportChangeEventHandler(InputReportChangeEventArgs args);
 
     public class HidService
     {
@@ -73,7 +74,14 @@ namespace Wheel2Xbox.Services
                 else
                 {
                     var changes = input.Data.Zip(lastReport, subtractBytesAsInt);
-                    InputReceived?.Invoke(changes);
+                    lastReport = input.Data;
+                    InputReceived?.Invoke(
+                        new InputReportChangeEventArgs 
+                        { 
+                            Changes = changes, 
+                            FullReport = input.Data 
+                        }
+                    );
                 }
             }
 

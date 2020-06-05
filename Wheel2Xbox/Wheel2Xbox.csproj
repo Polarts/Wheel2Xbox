@@ -12,8 +12,4 @@
     <PackageReference Include="hidlibrary" Version="3.3.28" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Types\" />
-  </ItemGroup>
-
 </Project>
