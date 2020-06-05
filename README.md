@@ -15,7 +15,7 @@ Responsible for communicating with ScpDriverInterface, through which it reports 
 Responsible for listening to change events from Hid Service, processing them into button mappings, and forwarding them to X360 Controller Service.
 
 
-![alt text](https://i.ibb.co/txqyk9z/flowchart.jpg "Fig. 1: Flow chart of the software's architecture")
+![alt text](https://i.ibb.co/zVGxn9f/flowchart.jpg "Fig. 1: Flow chart of the software's architecture")
 
 _Fig. 1: Flow chart of the software's architecture_
 
