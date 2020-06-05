@@ -28,6 +28,6 @@ You'll need to install ScpDriver on your computer.
 You can get it by downloading the [latest release](https://github.com/mogzol/ScpDriverInterface/releases) of ScpDriverInterface, and installing it from the Driver Installer folder via the provided EXE.
 
 # Special Thanks
-- Shoutout to [Mike O'Brian](https://github.com/mikeobrien) and [Austin Mullins](https://github.com/amullins83) for developing such a wonderful cross-platform HID interface library for C#, as well as any other contributor supporting their project!
+- Shoutout to [Mike O'Brian](https://github.com/mikeobrien) and [Austin Mullins](https://github.com/amullins83) for developing such a wonderful cross-platform HID interface library for C#, and a big thank you to all the contributors for helping to make it better!
 - Shoutout to [Scarlet.Crush](http://forums.pcsx2.net/User-Scarlet-Crush) for creating the SCP Virtual Bus Driver, and to [Morgan Zolob](https://github.com/mogzol) for utilizing it to make such an easy-to-use SDK for virtualizing Xbox 360 controller signals!
 - A special thanks to [Rohi Ulecia](https://www.linkedin.com/in/rohi-ulecia/?fbclid=IwAR0WZMNrA071aMgfPOfnLPn17twoCt4jXVi60cqBKlhzlarLIo9VRQtPIv0) for helping me refine my algorithm and code workflow in this project :)
