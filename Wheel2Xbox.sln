@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wheel2Xbox", "Wheel2Xbox\Wheel2Xbox.csproj", "{43B2106C-7727-4333-9BE0-0B65859DEFD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wheel2Xbox", "Wheel2Xbox\Wheel2Xbox.csproj", "{43B2106C-7727-4333-9BE0-0B65859DEFD7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScpDriverInterface", "ScpDriverInterface\ScpDriverInterface.csproj", "{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HidInputTesterCLI", "HidInputTesterCLI\HidInputTesterCLI.csproj", "{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HidInputTesterCLI", "HidInputTesterCLI\HidInputTesterCLI.csproj", "{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wheel2XboxCLI", "Wheel2XboxCLI\Wheel2XboxCLI.csproj", "{33066EA1-F252-4C32-99D9-4BCA181B56C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33066EA1-F252-4C32-99D9-4BCA181B56C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33066EA1-F252-4C32-99D9-4BCA181B56C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33066EA1-F252-4C32-99D9-4BCA181B56C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33066EA1-F252-4C32-99D9-4BCA181B56C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
