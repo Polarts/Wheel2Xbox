@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wheel2Xbox", "Wheel2Xbox\Wh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScpDriverInterface", "ScpDriverInterface\ScpDriverInterface.csproj", "{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HidInputTesterCLI", "HidInputTesterCLI\HidInputTesterCLI.csproj", "{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{478A29F7-9DDF-4E0D-A419-85ED41F6CC48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
