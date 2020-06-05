@@ -17,6 +17,22 @@ namespace Wheel2Xbox.Services
 
         #endregion
 
+        #region Properties
+
+        // These properties are accesors of the local X360Controller properties.
+        // In addition, they will also send a report once set
+
+        public X360Buttons Buttons
+        {
+            get => controller.Buttons;
+            set
+            {
+                controller.Buttons = value;
+                bus.Report(1, controller.GetReport());
+            }
+        }
+
+        #endregion
 
         #region Ctor and Factory
 
@@ -38,8 +54,12 @@ namespace Wheel2Xbox.Services
 
         #endregion
 
-
         #region Methods
+
+        public void Unplug()
+        {
+            bus.Unplug(1);
+        }
 
         #endregion
     }
