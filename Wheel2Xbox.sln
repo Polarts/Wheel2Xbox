@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wheel2Xbox", "Wheel2Xbox\Wheel2Xbox.csproj", "{43B2106C-7727-4333-9BE0-0B65859DEFD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScpDriverInterface", "ScpDriverInterface\ScpDriverInterface.csproj", "{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43B2106C-7727-4333-9BE0-0B65859DEFD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B2106C-7727-4333-9BE0-0B65859DEFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B2106C-7727-4333-9BE0-0B65859DEFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B2106C-7727-4333-9BE0-0B65859DEFD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC2A4D1-CE08-4A6D-B7ED-C3326EC21F69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20673F00-DE48-41C9-B319-B61DB15E114E}
+	EndGlobalSection
+EndGlobal
