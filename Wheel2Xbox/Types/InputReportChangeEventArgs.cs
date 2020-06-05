@@ -6,8 +6,8 @@ namespace Wheel2Xbox.Types
 {
     public class InputReportChangeEventArgs : EventArgs
     {
-        public IEnumerable<int> Changes { get; set; }
+        public int[] Changes { get; set; }
 
-        public IEnumerable<byte> FullReport { get; set; }
+        public byte[] FullReport { get; set; }
     }
 }

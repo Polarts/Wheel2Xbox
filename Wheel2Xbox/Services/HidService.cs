@@ -78,7 +78,7 @@ namespace Wheel2Xbox.Services
                     InputReceived?.Invoke(
                         new InputReportChangeEventArgs 
                         { 
-                            Changes = changes, 
+                            Changes = changes.ToArray(), 
                             FullReport = input.Data 
                         }
                     );
@@ -87,7 +87,7 @@ namespace Wheel2Xbox.Services
 
         }
 
-        private  int subtractBytesAsInt(byte current, byte last) => current - last;
+        private int subtractBytesAsInt(byte current, byte last) => current - last;
 
         #endregion
     }
