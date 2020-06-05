@@ -17,7 +17,8 @@ namespace Wheel2Xbox.Services
 
         #endregion
 
-        #region Methods
+
+        #region Ctor and Factory
 
         public static ScpX360Service Create()
         {
@@ -34,6 +35,11 @@ namespace Wheel2Xbox.Services
 
             bus.PlugIn(1);
         }
+
+        #endregion
+
+
+        #region Methods
 
         #endregion
     }

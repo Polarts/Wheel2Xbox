@@ -43,8 +43,6 @@ namespace Wheel2Xbox.Services
 
         #endregion
 
-        #region Methods
-
         #region Ctor and Factory
 
         public static HidService Create(ushort vendorId = 0x046D, ushort productId = 0xCA04)
@@ -63,7 +61,9 @@ namespace Wheel2Xbox.Services
 
         #endregion
 
-        private  void onReadTimerElapsed(object state)
+        #region Methods
+
+        private void onReadTimerElapsed(object state)
         {
             var input = device.Read();
             if (input.Status == HidDeviceData.ReadStatus.Success
