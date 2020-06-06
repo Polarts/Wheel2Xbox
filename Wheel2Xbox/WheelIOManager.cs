@@ -9,6 +9,11 @@ namespace Wheel2Xbox
 {
     public class WheelIOManager
     {
+        #region Constants
+
+        const double WHEEL_AXIS_TRANSFORM = 32767 / 510;
+
+        #endregion
 
         #region Fields
 
@@ -158,6 +163,29 @@ namespace Wheel2Xbox
                 }
             };
 
+            axisIdentities = new List<AxisIdentity>
+            {
+                new AxisIdentity
+                {
+                    Name = "Wheel",
+                    Index = 1,
+                    SectorIndex = 2,
+                    OutputAxis = X360Axis.LeftStickX
+                },
+                new AxisIdentity
+                {
+                    Name = "Left Pedal",
+                    Index = 7,
+                    OutputAxis = X360Axis.RightTrigger
+                },
+                new AxisIdentity
+                {
+                    Name = "Right Pedal",
+                    Index = 6,
+                    OutputAxis = X360Axis.LeftTrigger
+                }
+            };
+
             #endregion
 
             hidService.InputReceived += onInputReceived;
@@ -169,25 +197,77 @@ namespace Wheel2Xbox
 
         private void onInputReceived(InputReportChangeEventArgs args)
         {
-            var buttonsReport = scpService.Buttons;
+            var newController = new X360Controller(scpService.Controller);
             // for logging purposes
             string pressed = "", 
                    unpressed = "";
+
+            #region Button bindings
 
             buttonIdentities.ForEach(buttonId =>
             {
                 if (args.Changes[buttonId.Index] == buttonId.Value)
                 {
                     pressed += buttonId.OutputButton.ToString();
-                    buttonsReport ^= buttonId.OutputButton;
+                    newController.Buttons ^= buttonId.OutputButton;
                 }
                 if (args.Changes[buttonId.Index] == -buttonId.Value)
                 {
                     unpressed += buttonId.OutputButton.ToString();
-                    buttonsReport &= ~buttonId.OutputButton;
+                    newController.Buttons &= ~buttonId.OutputButton;
                 }
             });
-            scpService.Buttons = buttonsReport;
+
+            #endregion
+
+            #region Wheel binding
+
+            var wheelIdentity = axisIdentities[0];
+            var currentSector = args.FullReport[wheelIdentity.SectorIndex.Value] - args.Changes[wheelIdentity.SectorIndex.Value];
+
+            var currentWheelValue = args.FullReport[wheelIdentity.Index];
+            short finalWheelValue = 0;
+
+            if (currentSector < 2)
+            {
+                finalWheelValue = (short)((-510 + currentWheelValue + (255 * currentSector)) * WHEEL_AXIS_TRANSFORM);
+            }
+            else
+            {
+                finalWheelValue = (short)((currentWheelValue + (255 * (currentSector - 2))) * WHEEL_AXIS_TRANSFORM);
+            }
+
+
+            newController.LeftStickX = finalWheelValue;
+            // log axis state
+            Console.Write($"LeftStickX: {newController.LeftStickX} | ");
+
+            #endregion
+
+            #region Pedal bindings
+
+            for (int i=1; i<3; i++)
+            {
+                var axis = axisIdentities[i];
+                var currentValue = (byte)(255 - args.FullReport[axis.Index]);
+                switch (axis.OutputAxis)
+                {
+                    case X360Axis.LeftTrigger:
+                        newController.LeftTrigger = currentValue;
+                        break;
+
+                    case X360Axis.RightTrigger:
+                        newController.RightTrigger = currentValue;
+                        break;
+                }
+
+                //log axis state
+                Console.Write($"{axis.OutputAxis}: {currentValue} | ");
+            }
+
+            #endregion
+
+            scpService.Controller = newController;
             // log the button states
             Console.WriteLine($"Pressed: {pressed} | Unpressed: {unpressed}");
         }

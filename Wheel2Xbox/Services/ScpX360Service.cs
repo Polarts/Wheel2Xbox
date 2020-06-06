@@ -19,15 +19,16 @@ namespace Wheel2Xbox.Services
 
         #region Properties
 
-        // These properties are accesors of the local X360Controller properties.
-        // In addition, they will also send a report once set
-
-        public X360Buttons Buttons
+        /// <summary>
+        /// An accessor to the local controller.<br></br>
+        /// Will send a report once updated.
+        /// </summary>
+        public X360Controller Controller
         {
-            get => controller.Buttons;
+            get => controller;
             set
             {
-                controller.Buttons = value;
+                controller = value;
                 bus.Report(1, controller.GetReport());
             }
         }
