@@ -34,6 +34,7 @@ namespace Wheel2XboxCLI
             manager = WheelIOManager.Create();
 
             Console.WriteLine("Wheel I/O Manager initialized! Listening to buttons...\n" +
+                "Press any button on your wheel to start.\n" +
                 "Press enter to stop.");
 
             Console.ReadLine();
