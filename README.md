@@ -1,4 +1,9 @@
 # Wheel2Xbox
+
+**Current state:** Ready to play!
+
+**Next stop:** UI that allows mapping to different buttons and axis
+
 A project that converts signals from [Logitech Formula Vibration Feedback Wheel (E-UK12, 2004 model)](https://www.amazon.co.uk/Formula-Vibration-Feedback-Wheel-PC/dp/B0006J243Q) into virtual Xbox 360 controller signals to make it usable with modern games.
 This project utilizes [HidLibrary](https://github.com/mikeobrien/HidLibrary) and [ScpDriverInterface](https://github.com/mogzol/ScpDriverInterface) to achieve its goal.
 
