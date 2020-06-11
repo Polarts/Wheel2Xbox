@@ -6,8 +6,6 @@ namespace Wheel2Xbox.Types
 {
     public class AxisIdentity
     {
-        public string Name { get; set; }
-
         public int Index { get; set; }
 
         /// <summary>

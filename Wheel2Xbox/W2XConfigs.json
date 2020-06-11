@@ -1,0 +1,100 @@
+{
+  "SteeringSensitivity": 1.0,
+  "ButtonIdentities": {
+    "1": {
+      "Index": 2,
+      "Value": 4,
+      "OutputButton": "X"
+    },
+    "2": {
+      "Index": 2,
+      "Value": 8,
+      "OutputButton": "A"
+    },
+    "3": {
+      "Index": 2,
+      "Value": 16,
+      "OutputButton": "B"
+    },
+    "4": {
+      "Index": 2,
+      "Value": 32,
+      "OutputButton": "Y"
+    },
+    "5": {
+      "Index": 2,
+      "Value": 64,
+      "OutputButton": "LeftBumper"
+    },
+    "6": {
+      "Index": 2,
+      "Value": 128,
+      "OutputButton": "RightBumper"
+    },
+    "7": {
+      "Index": 3,
+      "Value": 1,
+      "OutputButton": "LeftStick"
+    },
+    "8": {
+      "Index": 3,
+      "Value": 2,
+      "OutputButton": "RightStick"
+    },
+    "9": {
+      "Index": 3,
+      "Value": 4,
+      "OutputButton": "Back"
+    },
+    "10": {
+      "Index": 3,
+      "Value": 8,
+      "OutputButton": "Start"
+    },
+    "11": {
+      "Index": 3,
+      "Value": 16,
+      "OutputButton": "Back"
+    },
+    "12": {
+      "Index": 3,
+      "Value": 32,
+      "OutputButton": "Start"
+    },
+    "Left": {
+      "Index": 5,
+      "Value": -2,
+      "OutputButton": "Left"
+    },
+    "Right": {
+      "Index": 5,
+      "Value": -6,
+      "OutputButton": "Right"
+    },
+    "Up": {
+      "Index": 5,
+      "Value": -8,
+      "OutputButton": "Up"
+    },
+    "Down": {
+      "Index": 5,
+      "Value": -4,
+      "OutputButton": "Down"
+    }
+  },
+  "AxisIdentities": {
+    "Wheel": {
+      "Index": 1,
+      "SectorIndex": 2,
+      "OutputAxis": "LeftStickX"
+    },
+    "LeftPedal": {
+      "Index": 7,
+      "OutputAxis": "RightTrigger"
+    },
+    "RightPedal": {
+      "Index": 6,
+      "OutputAxis": "LeftTrigger"
+    }
+  }
+}

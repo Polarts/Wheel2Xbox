@@ -1,6 +1,9 @@
-﻿using ScpDriverInterface;
+﻿using Newtonsoft.Json;
+using ScpDriverInterface;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 using Wheel2Xbox.Services;
 using Wheel2Xbox.Types;
@@ -17,15 +20,13 @@ namespace Wheel2Xbox
 
         #region Fields
 
+        static bool isCreated = false;
+
         HidService hidService;
         
         ScpX360Service scpService;
 
-        static bool isCreated = false;
-
-        List<ButtonIdentity> buttonIdentities;
-
-        List<AxisIdentity> axisIdentities;
+        Configurations configs;
 
         #endregion
         
@@ -45,148 +46,11 @@ namespace Wheel2Xbox
             hidService = HidService.Create();
             scpService = ScpX360Service.Create();
 
-            #region generate input identities
-
-            buttonIdentities = new List<ButtonIdentity>
+            using (StreamReader r = new StreamReader("W2XConfigs.json"))
             {
-                new ButtonIdentity
-                {
-                    Name = "1",
-                    Index = 2,
-                    Value = 4,
-                    OutputButton = X360Buttons.X
-                },
-                new ButtonIdentity
-                {
-                    Name = "2",
-                    Index = 2,
-                    Value = 8,
-                    OutputButton = X360Buttons.A
-                },
-                new ButtonIdentity
-                {
-                    Name = "3",
-                    Index = 2,
-                    Value = 16,
-                    OutputButton = X360Buttons.B
-                },
-                new ButtonIdentity
-                {
-                    Name = "4",
-                    Index = 2,
-                    Value = 32,
-                    OutputButton = X360Buttons.Y
-                },
-                new ButtonIdentity
-                {
-                    Name = "5",
-                    Index = 2,
-                    Value = 64,
-                    OutputButton = X360Buttons.LeftBumper
-                },
-                new ButtonIdentity
-                {
-                    Name = "6",
-                    Index = 2,
-                    Value = 128,
-                    OutputButton = X360Buttons.RightBumper
-                },
-                new ButtonIdentity
-                {
-                    Name = "7",
-                    Index = 3,
-                    Value = 1,
-                    OutputButton = X360Buttons.LeftStick
-                },
-                new ButtonIdentity
-                {
-                    Name = "8",
-                    Index = 3,
-                    Value = 2,
-                    OutputButton = X360Buttons.RightStick
-                },
-                new ButtonIdentity
-                {
-                    Name = "9",
-                    Index = 3,
-                    Value = 4,
-                    OutputButton = X360Buttons.Back
-                },
-                new ButtonIdentity
-                {
-                    Name = "10",
-                    Index = 3,
-                    Value = 8,
-                    OutputButton = X360Buttons.Start
-                },
-                new ButtonIdentity
-                {
-                    Name = "11",
-                    Index = 3,
-                    Value = 16,
-                    OutputButton = X360Buttons.Back
-                },
-                new ButtonIdentity
-                {
-                    Name = "12",
-                    Index = 3,
-                    Value = 32,
-                    OutputButton = X360Buttons.Start
-                },
-                new ButtonIdentity
-                {
-                    Name = "Left",
-                    Index = 5,
-                    Value = -2,
-                    OutputButton = X360Buttons.Left
-                },
-                new ButtonIdentity
-                {
-                    Name = "Up",
-                    Index = 5,
-                    Value = -8,
-                    OutputButton = X360Buttons.Up
-                },
-                new ButtonIdentity
-                {
-                    Name = "Right",
-                    Index = 5,
-                    Value = -6,
-                    OutputButton = X360Buttons.Right
-                },
-                new ButtonIdentity
-                {
-                    Name = "Down",
-                    Index = 5,
-                    Value = -4,
-                    OutputButton = X360Buttons.Down
-                }
-            };
-
-            axisIdentities = new List<AxisIdentity>
-            {
-                new AxisIdentity
-                {
-                    Name = "Wheel",
-                    Index = 1,
-                    SectorIndex = 2,
-                    OutputAxis = X360Axis.LeftStickX
-                },
-                new AxisIdentity
-                {
-                    Name = "Left Pedal",
-                    Index = 7,
-                    OutputAxis = X360Axis.RightTrigger
-                },
-                new AxisIdentity
-                {
-                    Name = "Right Pedal",
-                    Index = 6,
-                    OutputAxis = X360Axis.LeftTrigger
-                }
-            };
-
-            #endregion
+                string json = r.ReadToEnd();
+                configs = JsonConvert.DeserializeObject<Configurations>(json);
+            }
 
             hidService.InputReceived += onInputReceived;
         }
@@ -204,8 +68,9 @@ namespace Wheel2Xbox
 
             #region Button bindings
 
-            buttonIdentities.ForEach(buttonId =>
+            foreach(var kvp in configs.ButtonIdentities)
             {
+                var buttonId = kvp.Value;
                 if (args.Changes[buttonId.Index] == buttonId.Value)
                 {
                     pressed += buttonId.OutputButton.ToString();
@@ -216,13 +81,13 @@ namespace Wheel2Xbox
                     unpressed += buttonId.OutputButton.ToString();
                     newController.Buttons &= ~buttonId.OutputButton;
                 }
-            });
+            }
 
             #endregion
 
             #region Wheel binding
 
-            var wheelIdentity = axisIdentities[0];
+            var wheelIdentity = configs.AxisIdentities["Wheel"];
             var currentSector = args.FullReport[wheelIdentity.SectorIndex.Value] - args.Changes[wheelIdentity.SectorIndex.Value];
 
             var currentWheelValue = args.FullReport[wheelIdentity.Index];
@@ -248,7 +113,7 @@ namespace Wheel2Xbox
 
             for (int i=1; i<3; i++)
             {
-                var axis = axisIdentities[i];
+                var axis = configs.AxisIdentities.ElementAt(i).Value;
                 var currentValue = (byte)(255 - args.FullReport[axis.Index]);
                 switch (axis.OutputAxis)
                 {
