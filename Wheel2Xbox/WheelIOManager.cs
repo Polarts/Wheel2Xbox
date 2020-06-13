@@ -22,6 +22,8 @@ namespace Wheel2Xbox
 
         static bool isCreated = false;
 
+        static int[] pressedButtons = new int[8];
+
         HidService hidService;
         
         ScpX360Service scpService;
@@ -73,11 +75,13 @@ namespace Wheel2Xbox
                 var buttonId = kvp.Value;
                 if (args.Changes[buttonId.Index] == buttonId.Value)
                 {
+                    pressedButtons[buttonId.Index] = buttonId.Value;
                     pressed += buttonId.OutputButton.ToString();
                     newController.Buttons ^= buttonId.OutputButton;
                 }
                 if (args.Changes[buttonId.Index] == -buttonId.Value)
                 {
+                    pressedButtons[buttonId.Index] = 0;
                     unpressed += buttonId.OutputButton.ToString();
                     newController.Buttons &= ~buttonId.OutputButton;
                 }
@@ -88,22 +92,24 @@ namespace Wheel2Xbox
             #region Wheel binding
 
             var wheelIdentity = configs.AxisIdentities["Wheel"];
-            var currentSector = args.FullReport[wheelIdentity.SectorIndex.Value] - args.Changes[wheelIdentity.SectorIndex.Value];
+            var currentSector = args.FullReport[wheelIdentity.SectorIndex.Value] - pressedButtons[wheelIdentity.SectorIndex.Value];
 
             var currentWheelValue = args.FullReport[wheelIdentity.Index];
-            short finalWheelValue = 0;
+            short finalWheelValue;
 
             if (currentSector < 2)
             {
-                finalWheelValue = (short)((-510 + currentWheelValue + (255 * currentSector)) * WHEEL_AXIS_TRANSFORM);
+                short value = (short)((-510 + currentWheelValue + (255 * currentSector)) * WHEEL_AXIS_TRANSFORM * configs.SteeringSensitivity);
+                finalWheelValue = (short)(value > 0? -32767 : value);
             }
             else
             {
-                finalWheelValue = (short)((currentWheelValue + (255 * (currentSector - 2))) * WHEEL_AXIS_TRANSFORM);
+                short value = (short)((currentWheelValue + (255 * (currentSector - 2))) * WHEEL_AXIS_TRANSFORM * configs.SteeringSensitivity);
+                finalWheelValue = (short)(value < 0? 32767 : value);
             }
 
-
             newController.LeftStickX = finalWheelValue;
+
             // log axis state
             Console.Write($"LeftStickX: {newController.LeftStickX} | ");
 
