@@ -13,8 +13,6 @@ namespace SystemTrayIcon
     {
         public static Color HoverColor = Color.FromArgb(52, 52, 52);
 
-        List<ToolStripMenuItem> menuItems = new List<ToolStripMenuItem>();
-
         public ContextMenuStrip Create()
         {
             ContextMenuStrip menu = new ContextMenuStrip
@@ -30,11 +28,9 @@ namespace SystemTrayIcon
             {
                 Text = "Logs",
                 Image = Resources.Logs,
-                BackColor = Color.Black
             };
             logs.Click += onLogsClicked;
             menu.Items.Add(logs);
-            menuItems.Add(logs);
 
             #endregion
 
@@ -44,11 +40,9 @@ namespace SystemTrayIcon
             {
                 Text = "Settings",
                 Image = Resources.Settings,
-                BackColor = Color.Black
             };
             settings.Click += onSettingsClicked;
             menu.Items.Add(settings);
-            menuItems.Add(settings);
 
             #endregion
 
@@ -58,11 +52,9 @@ namespace SystemTrayIcon
             {
                 Text = "About",
                 Image = Resources.About,
-                BackColor = Color.Black
             };
             about.Click += onAboutClicked;
             menu.Items.Add(about);
-            menuItems.Add(about);
 
             #endregion
 
@@ -72,23 +64,21 @@ namespace SystemTrayIcon
             {
                 Text = "Exit",
                 Image = Resources.Exit,
-                BackColor = Color.Black
             };
             exit.Click += onExitClicked;
             menu.Items.Add(exit);
-            menuItems.Add(exit);
 
             #endregion
 
             #endregion
 
-            menuItems.ForEach(item =>
+            foreach (ToolStripMenuItem item in menu.Items)
             {
                 item.BackColor = Color.Black;
                 item.ForeColor = Color.White;
                 item.MouseEnter += OnItemMouseEnter;
                 item.MouseLeave += OnItemMouseLeave;
-            });
+            }
 
             return menu;
         }
