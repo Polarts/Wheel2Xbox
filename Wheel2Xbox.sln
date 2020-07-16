@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HidInputTesterCLI", "HidInp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wheel2XboxCLI", "Wheel2XboxCLI\Wheel2XboxCLI.csproj", "{33066EA1-F252-4C32-99D9-4BCA181B56C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemTrayIcon", "SystemTrayIcon\SystemTrayIcon.csproj", "{7BAF9247-09C9-4445-92F8-8A8E82865F89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{AA09D623-89F8-4141-8E5D-E678F28CC50D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{33066EA1-F252-4C32-99D9-4BCA181B56C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33066EA1-F252-4C32-99D9-4BCA181B56C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33066EA1-F252-4C32-99D9-4BCA181B56C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BAF9247-09C9-4445-92F8-8A8E82865F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BAF9247-09C9-4445-92F8-8A8E82865F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BAF9247-09C9-4445-92F8-8A8E82865F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BAF9247-09C9-4445-92F8-8A8E82865F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA09D623-89F8-4141-8E5D-E678F28CC50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA09D623-89F8-4141-8E5D-E678F28CC50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA09D623-89F8-4141-8E5D-E678F28CC50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA09D623-89F8-4141-8E5D-E678F28CC50D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
