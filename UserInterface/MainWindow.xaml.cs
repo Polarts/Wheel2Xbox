@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UserInterface.Views.Windows;
 
 namespace UserInterface
 {
@@ -32,6 +33,11 @@ namespace UserInterface
                 case "Exit":
                     TaskbarIcon.Visibility = Visibility.Collapsed;
                     Application.Current.Shutdown();
+                    break;
+
+                case "Settings":
+                    X360ControllerMapWindow controllerMapWindow = new X360ControllerMapWindow();
+                    controllerMapWindow.Show();
                     break;
             }
         }
