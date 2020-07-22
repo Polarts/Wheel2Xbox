@@ -19,7 +19,7 @@ namespace UserInterface
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            WheelIOManager = WheelIOManager.Create();
+            //WheelIOManager = WheelIOManager.Create();
         }
     }
 }

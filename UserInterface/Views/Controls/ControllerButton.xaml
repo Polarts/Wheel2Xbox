@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="UserInterface.Views.Controls.ControllerButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserInterface.Views.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="45" d:DesignWidth="45">
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+    
+    <Grid>
+        <ToggleButton x:Name="Toggle" 
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      Style="{StaticResource TransparentToggleButton}"/>
+    </Grid>
+</UserControl>

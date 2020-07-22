@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UserInterface.Views.Windows"
+        xmlns:local="clr-namespace:UserInterface.Views.Windows" xmlns:controls="clr-namespace:UserInterface.Views.Controls"
         mc:Ignorable="d"
         Title="Xbox 360 Controller Map" 
         Height="450" Width="800"
@@ -16,7 +16,7 @@
                 VerticalAlignment="Stretch">
 
             <Canvas.Resources>
-                <Style TargetType="{x:Type Button}">
+                <Style TargetType="{x:Type ToggleButton}">
                     <Setter Property="Width" Value="45"/>
                     <Setter Property="Height" Value="40"/>
                     <Setter Property="Background" Value="Transparent"/>
@@ -25,53 +25,53 @@
 
             <!--#region XYAB Buttons -->
 
-            <Button x:Name="YButton"
-                    Canvas.Top="162"
-                    Canvas.Left="563"/>
+            <controls:ControllerButton x:Name="YButton"
+                                       Canvas.Top="162"
+                                       Canvas.Left="563"/>
 
-            <Button x:Name="XButton" 
-                    Canvas.Top="202"
-                    Canvas.Left="512"/>
+            <controls:ControllerButton x:Name="XButton" 
+                                       Canvas.Top="202"
+                                       Canvas.Left="512"/>
 
-            <Button x:Name="BButton" 
-                    Canvas.Top="199"
-                    Canvas.Left="611"/>
+            <controls:ControllerButton x:Name="BButton" 
+                                       Canvas.Top="199"
+                                       Canvas.Left="611"/>
 
-            <Button x:Name="AButton"
-                    Canvas.Top="242"
-                    Canvas.Left="559"/>
+            <controls:ControllerButton x:Name="AButton"
+                                       Canvas.Top="242"
+                                       Canvas.Left="559"/>
 
             <!--#endregion-->
 
             <!--#region D-Pad Buttons -->
 
-            <Button x:Name="DPadLeft"
-                    Canvas.Left="241"
-                    Canvas.Top="303"/>
+            <controls:ControllerButton x:Name="DPadLeft"
+                                       Canvas.Left="241"
+                                       Canvas.Top="303"/>
 
-            <Button x:Name="DPadRight"
-                    Canvas.Left="325"
-                    Canvas.Top="303"/>
+            <controls:ControllerButton x:Name="DPadRight"
+                                       Canvas.Left="325"
+                                       Canvas.Top="303"/>
 
-            <Button x:Name="DPadTop"
-                    Canvas.Left="282"
-                    Canvas.Top="265"/>
+            <controls:ControllerButton x:Name="DPadTop"
+                                       Canvas.Left="282"
+                                       Canvas.Top="265"/>
 
-            <Button x:Name="DPadBottom"
-                    Canvas.Left="285"
-                    Canvas.Top="338"/>
+            <controls:ControllerButton x:Name="DPadBottom"
+                                       Canvas.Left="285"
+                                       Canvas.Top="338"/>
 
             <!--#endregion-->
 
             <!--#region Start/Back Buttons -->
 
-            <Button x:Name="StartButton"
-                    Canvas.Left="445"
-                    Canvas.Top="202"/>
+            <controls:ControllerButton x:Name="StartButton"
+                                       Canvas.Left="445"
+                                       Canvas.Top="202"/>
 
-            <Button x:Name="BackButton"
-                    Canvas.Left="309"
-                    Canvas.Top="202"/>
+            <controls:ControllerButton x:Name="BackButton"
+                                       Canvas.Left="309"
+                                       Canvas.Top="202"/>
 
             <!--#endregion-->
 
