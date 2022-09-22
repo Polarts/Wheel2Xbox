@@ -11,7 +11,7 @@ namespace HidInputTesterCLI
 
         static void Main(string[] args)
         {
-            device = HidDevices.Enumerate(0x046D, 0xCA04).ToArray()[0];
+            device = HidDevices.Enumerate(0x04D8, 0xFD0A).ToArray()[0];
             var readTimer = new Timer(onReadTimerElapsed, null, 0, 1000 / 60);
             Console.ReadLine();
         }
