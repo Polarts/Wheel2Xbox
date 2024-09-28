@@ -90,11 +90,11 @@
     },
     "LeftPedal": {
       "Index": 7,
-      "OutputAxis": "RightTrigger"
+      "OutputAxis": "LeftTrigger"
     },
     "RightPedal": {
       "Index": 6,
-      "OutputAxis": "LeftTrigger"
+      "OutputAxis": "RightTrigger"
     }
   }
 }
